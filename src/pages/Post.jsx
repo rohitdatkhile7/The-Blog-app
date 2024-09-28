@@ -1,0 +1,121 @@
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import appwriteService from "../appwrite/config";
+import { Button, Container } from "../components";
+import parse from "html-react-parser";
+import { useDispatch, useSelector } from "react-redux";
+import { postFoundBySlug } from "../store/postSlice";
+import { ThreeDot } from "react-loading-indicators";
+import profileImg from "../assets/5034901-200.png"
+
+
+export default function Post() {
+  const [post, setPost] = useState(null);
+  const { slug } = useParams();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.auth.userData);
+  const userpost = useSelector((state) => state.posts.posts);
+  const findbyslug = useSelector((state) => state.posts.postBySlug)
+  // const slugPost = useSelector((state) => state.posts.posts.postFoundBySlug)
+
+  const isAuthor = post && userData ? post.userId === userData.$id : false;
+
+  const posts = userpost[0]
+
+  useEffect(() => {
+    if (posts && slug) {
+      const slugPost = userpost.find((post) => post.$id === slug);
+      if (slugPost) {
+        setPost(slugPost);
+        dispatch(postFoundBySlug(slugPost));
+      } else {
+        navigate("/");
+      }
+    }
+  }, [slug, dispatch, navigate, userpost]);
+
+  console.log("slug of post:", post);
+  console.log("slug of post:", post)
+  // console.log(findbyslug)
+
+  const deletePost = () => {
+    appwriteService.deletePost(post.$id).then((status) => {
+      if (status) {
+        appwriteService.deleteFile(post.featuredImage);
+        navigate(0);
+      }
+    });
+  };
+  const CategoryBadge = ({ category }) => {
+    const categoryColors = {
+      Lifestyle: "text-[#6d28db] bg-[#f6f0fe]",
+      Technology: "text-[#2d68f8] bg-[#eff3fe]",
+      Travel: "text-[#1a826c] bg-[#eef9f2]",
+      Health: "text-[#07a8ae] bg-[#ebf8f8]",
+      Culture: "text-[#2280c0] bg-[#ecfbfb]",
+      Other: "text-[#ff3358] bg-[#ffd2da]"
+    };
+
+    return (
+      <span
+        className={`${categoryColors[category]}  text-md font-semibold mr-2 px-3 py-0.5 rounded-full`}
+      >
+        {category}
+      </span>
+    );
+  };
+  return post ? (
+    <div className="py-10 w-full min-h-screen">
+      <Container>
+        <div className="flex items-center justify-center">
+          <CategoryBadge category={post.category} />
+        </div>
+        <div className="w-full m-5 text-wrap  px-32">
+          <h1 className="text-4xl  text-center font-sans font-bold">{post.title}</h1>
+        </div>
+        <div className="w-full flex justify-center m-4 relative border rounded-xl p-4">
+          <img
+            src={appwriteService.getFilePreview(post.featuredImage)}
+            alt={post.title}
+            className="rounded-xl object-cover w-1/2 "
+          />
+
+          {isAuthor && (
+            <div className="absolute right-6 top-6">
+              <Link to={`/edit-post/${post.$id}`}>
+                <Button bgColor="bg-green-600 shadow-xl hover:bg-green-400" className="mr-3">
+                  Edit
+                </Button>
+              </Link>
+              <Button bgColor="bg-red-600 shadow-xl hover:bg-red-400" onClick={deletePost}>
+                Delete
+              </Button>
+            </div>
+          )}
+        </div>
+      <div className=" w-full flex items-center justify-center">
+        <div className="browser-css px-44 my-5  text-lg text-wrap font-sans font-medium ">
+          {typeof post.content === 'string' ? parse(post.content) : parse(String(post.content))}
+        </div>
+        </div>
+        <div className="flex justify-center mt-20 items-center gap-4">
+          <div className="flex ">
+            <img
+              src={profileImg}
+              alt={post.author}
+              className="w-6 h-6 mr-3 rounded-full bg-gray-200 "
+            />
+             <span className="text-md text-gray-700">{post.author}</span>
+          </div>
+         
+          <span className="text-md text-right text-gray-700 ">{new Date(post.$createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+        </div>
+      </Container>
+    </div>
+  ) : (<div className="flex justify-center items-center w-screen h-screen text-3xl gap-2 text-black font-bold ">
+    <span>Loading </span>
+    <ThreeDot color="#033149" size="medium" text="" textColor="" />
+  </div>
+  );
+}
