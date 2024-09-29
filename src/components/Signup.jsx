@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import authService from '../appwrite/auth'
+import postService from '../appwrite/config.js'
 import {Link ,useNavigate} from 'react-router-dom'
 import {login} from '../store/authSlice'
+import { postAdded } from '../store/postSlice.js'
 import {Button, Input, Logo} from './index.js'
 import {useDispatch} from 'react-redux'
 import {useForm} from 'react-hook-form'
@@ -18,6 +20,8 @@ function Signup() {
             const userData = await authService.createAccount(data)
             if (userData) {
                 const userData = await authService.getCurrentUser();
+                const posts = await postService.getPosts();
+                if(posts) dispatch(postAdded(posts));
                 if(userData) dispatch(login({userData}));
                 navigate("/")
             }

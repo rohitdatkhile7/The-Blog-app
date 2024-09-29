@@ -124,7 +124,7 @@ export default function PostForm({ post }) {
      <div className="w-72">
      Select Category
        <Select 
-       options={["Technology", "Lifestyle", "Travel", "Health", "Culture", "Other"]}
+       options={["Technology", "Lifestyle", "Travel", "Health", "Culture", "Other", "Sports", "Science", "Buisness", "Education"]}
           label="Select Category"
           className="mb-4"
           {...register("category", { required: true })}

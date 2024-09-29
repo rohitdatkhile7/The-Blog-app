@@ -90,7 +90,7 @@ const Home = () => {
       </div>
 
       <Container>
-        <div className='flex justify-center flex-col items-center gap-4'>
+        <div className='flex m-10 justify-center  flex-col  items-center gap-4'>
           {/* Animation triggered when the section is in view */}
           <motion.h1
             variants={textVariant}
@@ -110,25 +110,37 @@ const Home = () => {
           </motion.p>
 
           {/* Category buttons */}
-          <div className="flex gap-5 py-12">
-            <button className={`text-lg font-medium px-5 py-3 shadow-lg rounded-full hover:text-white hover:bg-black ${categoryPost === 'All' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('All')}>
+          <div className="flex gap-5  justify-center items-center  flex-wrap py-12">
+            <button className={`text-lg font-medium px-3  py-3  text-nowrap shadow-lg rounded-full hover:text-white hover:bg-black ${categoryPost === 'All' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('All')}>
               All ({categoryPostCount('All')})
             </button>
-            <button className={`text-lg font-medium px-5 py-3 shadow-lg rounded-full hover:text-white hover:bg-black ${categoryPost === 'Technology' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Technology')}>
+            <button className={`text-lg font-medium px-4 py-3 shadow-lg text-nowrap rounded-full hover:text-white hover:bg-black ${categoryPost === 'Technology' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Technology')}>
               Technology ({categoryPostCount('Technology')})
             </button>
             {/* Add other category buttons */}
-            <button className={`text-lg font-medium  px-5 py-3 shadow-lg rounded-full  hover:text-white hover:bg-black ${categoryPost === 'Lifestyle' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Lifestyle')}>
+            <button className={`text-lg font-medium  px-4 py-3 shadow-lg text-nowrap rounded-full  hover:text-white hover:bg-black ${categoryPost === 'Lifestyle' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Lifestyle')}>
                 Lifestyle ({categoryPostCount('Lifestyle')})
               </button>
-              <button className={`text-lg font-medium  px-5 py-3 shadow-lg rounded-full hover:text-white hover:bg-black ${categoryPost === 'Travel' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Travel')}>
+              <button className={`text-lg font-medium  px-4 py-3 shadow-lg text-nowrap rounded-full hover:text-white hover:bg-black ${categoryPost === 'Travel' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Travel')}>
                 Travel ({categoryPostCount('Travel')}) 
               </button>
-              <button className={`text-lg font-medium  px-5 py-3 shadow-lg rounded-full hover:text-white hover:bg-black ${categoryPost === 'Health' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Health')}>
+              <button className={`text-lg font-medium  px-4 py-3 shadow-lg text-nowrap rounded-full hover:text-white hover:bg-black ${categoryPost === 'Health' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Health')}>
                 Health ({categoryPostCount('Health')})
               </button>
-              <button className={`text-lg font-medium  px-5 py-3 shadow-lg rounded-full  hover:text-white hover:bg-black ${categoryPost === 'Culture' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Culture')}>
+              <button className={`text-lg font-medium  px-4 py-3 shadow-lg text-nowrap rounded-full  hover:text-white hover:bg-black ${categoryPost === 'Culture' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Culture')}>
               Culture ({categoryPostCount('Culture')})
+              </button>
+              <button className={`text-lg font-medium  px-4 py-3 shadow-lg text-nowrap rounded-full  hover:text-white hover:bg-black ${categoryPost === 'Sports' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Sports')}>
+              Sports ({categoryPostCount('Sports')})
+              </button>
+              <button className={`text-lg font-medium  px-4 py-3 shadow-lg text-nowrap rounded-full  hover:text-white hover:bg-black ${categoryPost === 'Education' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Education')}>
+              Education ({categoryPostCount('Education')})
+              </button>
+              <button className={`text-lg font-medium  px-4 py-3 shadow-lg text-nowrap rounded-full  hover:text-white hover:bg-black ${categoryPost === 'Business' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Business')}>
+              Business ({categoryPostCount('Business')})
+              </button>
+              <button className={`text-lg font-medium  px-3 py-3 shadow-lg text-nowrap rounded-full  hover:text-white hover:bg-black ${categoryPost === 'Science' ? 'text-white bg-black ' : ''} bg-[#f9fafb] duration-300`} onClick={() => handleSelectedCategory('Science')}>
+              Science ({categoryPostCount('Science')})
               </button>
           </div>
         </div>

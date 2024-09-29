@@ -12,7 +12,11 @@ const CategoryBadge = ({ category }) => {
     Travel: "text-[#1a826c] bg-[#eef9f2]",
     Health: "text-[#07a8ae] bg-[#ebf8f8]",
     Culture: "text-[#2280c0] bg-[#ecfbfb]",
-    Other: "text-[#ff3358] bg-[#ffd2da]"
+    Other: "text-[#ff3358] bg-[#ffd2da]",
+    Sports: "text-[#d92f0f] bg-[#ffeceb]",
+    Education: "text-[#eab308] bg-[#fef9e7]",
+    Business: "text-[#6366f1] bg-[#eef2ff]",
+    Science: "text-[#14b8a6] bg-[#e0f7f5]",
   };
 
   return (

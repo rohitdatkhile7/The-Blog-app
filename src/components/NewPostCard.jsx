@@ -33,12 +33,17 @@ function NewPostCard({ post, isFeatured = false }) {
             <NewBadge isFeatured={isFeatured} />
             <span className={`py-1 mb-2 text-xs text-white px-3 w-auto text-center font-semibold rounded-full ${
             
-            post.category ==='Lifestyle' ? " bg-purple-500" :
-             post.category === 'Technology' ? 'bg-blue-500' :
-             post.category === 'Travel' ?  "bg-orange-500 ":
-             post.category === 'Health' ? "bg-green-500":
-             post.category === 'Culture' ? "bg-[#ff3358]":
-             post.category === 'Other' ?  "bg-white" : 'bg-sky-500'
+            post.category === 'Lifestyle' ? "bg-purple-500" :
+            post.category === 'Technology' ? 'bg-blue-500' :
+            post.category === 'Travel' ? "bg-orange-500" :
+            post.category === 'Health' ? "bg-green-500" :
+            post.category === 'Culture' ? "bg-[#ff3358]" :
+            post.category === 'Other' ? "bg-pink-600" :
+            post.category === 'Sports' ? "bg-red-500" : 
+            post.category === 'Education' ? "bg-yellow-500" :
+            post.category === 'Business' ? "bg-indigo-500" :
+            post.category === 'Science' ? "bg-teal-500" :
+            'bg-sky-500'
 
            }`}>{post.category}</span>
           </CardItem>
