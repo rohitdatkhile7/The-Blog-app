@@ -44,6 +44,7 @@ export default function Post() {
       if (status) {
         appwriteService.deleteFile(post.featuredImage);
         navigate(0);
+        navigate('/')
       }
     });
   };
