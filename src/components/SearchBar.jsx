@@ -27,7 +27,7 @@ const posts = useSelector(state => state.posts.posts);
   };
 
   return (
-    <div className="fixed inset-0 w-full h-screen bg-[#00000051] backdrop-blur-sm z-[100]">
+    <div className="fixed inset-0 w-full h-screen bg-[#00000079] backdrop-blur-sm z-[100]">
       <div className="container duration-300 flex items-center justify-center h-full max-w-2xl mx-auto">
         <div className="w-full bg-white p-6 rounded-lg shadow-lg">
           <div className="flex justify-between items-center mb-4">
@@ -43,7 +43,7 @@ const posts = useSelector(state => state.posts.posts);
                 placeholder="Search posts, tags, and authors"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-grow rounded-full px-3 py-1  m-1 text-lg font-normal text-black"
+                className="flex-grow rounded-full ring-4 ring-[#fbaebc] px-3 py-1  m-1 text-lg font-normal text-black"
               />
               <button className="p-2 rounded-full m-1 text-white bg-[#ff3358]" type="submit">Search</button>
             </div>

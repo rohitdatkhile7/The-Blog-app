@@ -26,8 +26,7 @@ function EditPost() {
         <PostForm post={post} />
       </Container>
     </div>
-  ) : ( <div className="flex justify-center items-center w-screen h-screen text-3xl gap-2 text-black font-bold ">
-  <span>Loading </span>
+  ) : ( <div className="flex justify-center items-center w-screen h-screen  ">
    <ThreeDot color="#033149" size="medium" text="" textColor="" />
 </div>
   )

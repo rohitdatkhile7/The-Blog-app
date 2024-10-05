@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, PostCard } from '../components';
 import { useSelector } from 'react-redux';
-import { ThreeDot } from 'react-loading-indicators';
+import {OrbitProgress } from 'react-loading-indicators';
 import { motion } from 'framer-motion';
 
 
@@ -48,9 +48,8 @@ function AllPosts() {
       </div>
     </Container>
   </div>
-  ) : ( <div className="flex justify-center items-center w-screen h-screen text-3xl gap-2 text-black font-bold ">
-  <span>Loading </span>
-   <ThreeDot color="#033149" size="medium" text="" textColor="" />
+  ) : ( <div className="flex justify-center items-center w-screen h-screen  ">
+   <OrbitProgress color="#033149" size="large" text="" textColor="" />
 </div>
   )
 }

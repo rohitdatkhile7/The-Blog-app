@@ -6,7 +6,7 @@ import { login, logout } from "./store/authSlice";
 import { postAdded } from './store/postSlice';
 import { Footer, Header } from './components';
 import { Outlet } from 'react-router-dom';
-import { ThreeDot } from 'react-loading-indicators';
+import { OrbitProgress } from 'react-loading-indicators';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -48,9 +48,8 @@ function App() {
       </div>
     </div>
   ) : (
-    <div className="flex justify-center items-center w-screen h-screen text-3xl gap-2 text-black font-bold">
-      <span>Loading</span>
-      <ThreeDot color="#ff3358" size="medium" />
+    <div className="flex justify-center items-center w-screen h-screen ">
+      <OrbitProgress color="#ff3358" size="large" />
     </div>
   );
 }

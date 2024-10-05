@@ -17,7 +17,7 @@ function LogoutBtn() {
     }
   return (
     <button
-    className='inline-bock px-6 py-2 duration-200 bg-blue-100 focus:ring-4 focus:outline-none focus:bg-transparent focus:ring-blue-200 focus:text-[#ff3358] rounded-full'
+    className='inline-bock px-6 py-2 duration-200 bg-[#ff3358] shadow-lg text-white focus:ring-4 focus:outline-none focus:bg-transparent focus:ring-[#ffccd5] focus:text-[#ff3358] rounded-full'
     onClick={logoutHandler}
     >Logout</button>
   )

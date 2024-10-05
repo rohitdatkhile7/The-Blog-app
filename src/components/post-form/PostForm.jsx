@@ -15,13 +15,13 @@ export default function PostForm({ post }) {
       content: post?.content || "",
       status: post?.status || "active",
       category: post?.category || "Other",
-      author:post?.author || ""
+      author:post?.author || ``
     },
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
-
+  const username =  userData.name
   const submit = async (data) => {
     try {
       const file = data.featuredImage[0] ? await appwriteService.uploadFile(data.featuredImage[0]) : 
@@ -100,11 +100,13 @@ export default function PostForm({ post }) {
         <Input
           label="Title :"
           placeholder="Title"
+          required
           className="mb-4"
           {...register("title", { required: true })}
         />
         <Input
           label="Slug :"
+          required
           placeholder="Slug"
           className="mb-4"
           {...register("slug", { required: true })}
@@ -114,18 +116,19 @@ export default function PostForm({ post }) {
         />
         <Input
           label="Author :"
+          placeholder="Author"
+         value={username}
           className="mb-4"
-          value={userData.name}
-          onInput={(e) => e.target.value}
-          {...register("author", { required: true })}
+          {...register("author", { required:false})}
           
         />
 
-     <div className="w-72">
-     Select Category
+     <div className="w-72 ">
+     Select Category :
        <Select 
        options={["Technology", "Lifestyle", "Travel", "Health", "Culture", "Other", "Sports", "Science", "Buisness", "Education"]}
           label="Select Category"
+          required
           className="mb-4"
           {...register("category", { required: true })}
        />

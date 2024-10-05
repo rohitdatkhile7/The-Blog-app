@@ -44,6 +44,12 @@ const Home = () => {
   const navigateOnPost = () => {
     navigate('/add-post');
   };
+  const navigateOnLogin = () => {
+    navigate('/login')
+  }
+  const navigateOnSignup = () => {
+    navigate('/signup')
+  }
 
   const sortedPosts = [...posts].sort((a, b) => new Date(b.$createdAt) - new Date(a.$createdAt));
   const featuredPost = sortedPosts[0];
@@ -51,14 +57,37 @@ const Home = () => {
 
   if (posts.length === 0) {
     return (
-      <div className="w-full py-8 mt-4 text-center">
+      <div className="w-full  py-16 bg-gradient-to-t from-[#ff2323] via-[#ffb7b7] to-[#ffffff] text-black">
         <Container>
-          <div className="flex flex-wrap">
-            <div className="p-2 w-full">
-              <h1 className="text-2xl p-4 font-bold hover:text-gray-500">
-                Please Login to read posts
-              </h1>
-            </div>
+          <div className="flex flex-col min-h-screen gap-1 text-center">
+            <motion.h1
+            className="text-8xl bg-gradient-to-b bg-clip-text from-black via-[#361b1b] font-semibold leading-none text-[#361b1b00] mb-4 shadow-sm"
+              initial={{ opacity: 0, y: -150 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              The Art of Blogging
+            </motion.h1>
+            <motion.p
+              className="text-2xl font-light  mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              Create blogs that are as unique and beautiful as your ideas.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <button onClick={navigateOnLogin} className="px-6 py-3 bg-white focus:ring-white focus:ring-4  text-black shadow-lg font-semibold rounded-full hover:bg-transparent transition duration-300 mr-4">
+                Login
+              </button>
+              <button onClick={navigateOnSignup} className="px-6 py-3  focus:ring-white focus:ring-4 bg-transparent border border-transparent text-black font-semibold rounded-full 2 border-white  transition duration-300">
+                Sign Up
+              </button>
+            </motion.div>
           </div>
         </Container>
       </div>
@@ -147,7 +176,7 @@ const Home = () => {
 
         <div className='grid grid-cols-1 md:grid-cols-2 min-h-screen lg:grid-cols-3 bg-[#f9fafb] gap-3 p-2 rounded-lg'>
           {filterdPosts.map((post) => (
-            <div key={post.$id} className='bg-white rounded-lg transition-transform duration-200 scale-95 hover:scale-100 hover:shadow-2xl overflow-hidden h-fit focus-within:ring-2 focus-within:ring-blue-500'>
+            <div key={post.$id} className='bg-white rounded-lg transition-transform duration-300 scale-95 hover:scale-100 hover:shadow-2xl overflow-hidden h-fit focus-within:ring-2 focus-within:ring-blue-500'>
               <PostCard post={post} />
             </div>
           ))}

@@ -28,7 +28,7 @@ function NewPostCard({ post, isFeatured = false }) {
           className={` object-cover  ${isFeatured? 'h-96' : 'h-52'} w-full  rounded-xl hover:shadow-2xl` }
         />
         </CardItem>
-        <CardItem className={`absolute w-auto inset-0  rounded-xl hover:shadow-2xl  bg-opacity-0 ${isFeatured? 'bg-gradient-to-t from-[#181818] via-[#2f2f2f3e] to-[#1e1e1e3c]':''}   flex flex-col justify-end m-4 p-4`}>
+        <CardItem className={`absolute w-auto inset-0  rounded-xl hover:shadow-2xl  bg-opacity-0 bg-gradient-to-t from-[#181818da] via-[#2f2f2f59] to-[#1e1e1e00]  flex flex-col justify-end m-4 p-4`}>
           <CardItem translateZ={50} as="p" className={`flex gap-2`}>
             <NewBadge isFeatured={isFeatured} />
             <span className={`py-1 mb-2 text-xs text-white px-3 w-auto text-center font-semibold rounded-full ${
