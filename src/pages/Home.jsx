@@ -5,6 +5,7 @@ import { ThreeDot } from 'react-loading-indicators';
 import NewPostCard from '../components/NewPostCard';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import GridPattern from '../components/GridPattern';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -57,11 +58,19 @@ const Home = () => {
 
   if (posts.length === 0) {
     return (
-      <div className="w-full  py-16 bg-gradient-to-t from-[#ff2323] via-[#ffb7b7] to-[#ffffff] text-black">
+      <div className="relative w-full bg-gradient-to-t from-[#ff2323] via-[#ffb7b7] to-[#ffffff] text-black">
+           <GridPattern
+        numSquares={50}
+        maxOpacity={0.1}
+        duration={3}
+        repeatDelay={1}
+        className="[mask-image:radial-gradient(500px_circle_at_center,white,transparent)] absolute w-full inset-0 h-screen"
+      />
+      
         <Container>
-          <div className="flex flex-col min-h-screen gap-1 text-center">
+          <div className="flex flex-col min-h-screen gap-1  text-center">
             <motion.h1
-            className="text-8xl bg-gradient-to-b bg-clip-text from-black via-[#361b1b] font-semibold leading-none text-[#361b1b00] mb-4 shadow-sm"
+            className="text-8xl bg-gradient-to-b bg-clip-text mt-20 from-black via-[#361b1b] font-semibold leading-none text-[#361b1b00] shadow-sm"
               initial={{ opacity: 0, y: -150 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
