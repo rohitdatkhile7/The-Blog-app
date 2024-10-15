@@ -129,13 +129,13 @@ const Home = () => {
         variants={textVariant}
         initial="hidden"
         animate="visible"
-        className='text-3xl sm:text-4xl font-sans font-semibold sm:text-left sm:ml-20 text-center  '
+        className='text-3xl sm:text-4xl font-sans font-semibold sm:text-left sm:ml-28 p-1 text-center  '
       >
         Latest Articles
       </motion.h1>
 
       <div className="w-full min-h-screen mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1  bg-[#f9fafb] shadow-lg rounded-lg p-4 sm:px-10 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1  bg-[#f9fafb] shadow-lg rounded-lg p-4 sm:mx-24 gap-6">
           <div className='col-span-1'>
             <NewPostCard post={featuredPost} isFeatured={true} />
           </div>
