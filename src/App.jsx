@@ -12,14 +12,13 @@ function App() {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    const fetchUserDataAndPosts = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true)
         const userData = await authService.getCurrentUser();  // fetching user data
         if (userData) {
           dispatch(login({ userData }));  // storing in user state
           console.log(userData);
-
           const posts = await postService.getPosts();  // fetching posts
           dispatch(postAdded(posts));  // storing posts[] state
           console.log(posts);
@@ -33,8 +32,7 @@ function App() {
         setLoading(false);  // stop loading once everything is done
       }
     };
-
-    fetchUserDataAndPosts();
+    fetchData();
   }, [dispatch]);
 
   return !loading ? (

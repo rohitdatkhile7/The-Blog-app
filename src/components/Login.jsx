@@ -37,7 +37,7 @@ function Login() {
         <div
             className='flex  w-full  min-h-screen justify-center items-center'
         >
-            <div className={`mx-auto w-full h-fit  max-w-lg bg-white hover:shadow-2xl shadow-lg rounded-xl p-10 border border-black/10`}>
+            <div className={`mx-6 sm:mx-auto w-full h-fit  max-w-lg bg-white hover:shadow-2xl shadow-lg rounded-xl p-10 border border-black/10`}>
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[200px] m-4">
                         <Logo width="100%" />
